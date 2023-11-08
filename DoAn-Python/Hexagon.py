@@ -11,8 +11,8 @@ class Hexagon:
         self.minimalRadius = math.cos(math.radians(30)) * radius #Bán kính đường tròng nội tiếp
         self.vertices = self.computeVertices() #Lấy về 1 list các tuple chứa toạ độ của các đỉnh
         self.centre = self.findCentre()
-        self.currentPlayer = 1 #Biến xác định người chơi hiện tại
-        self.checkFilled = False #Biến đánh dấu đã đc chọn
+#        self.currentPlayer = 1 #Biến xác định người chơi hiện tại
+        self.state = 0 #Biến lưu trạng thái của lục giác(0: WHITE, 1: RED, 2: BLUE)
     def computeVertices(self):
         """Tìm list các tuple chứa toạ độ các đỉnh lục giác"""
         x, y = self.position
@@ -41,13 +41,12 @@ class Hexagon:
         """Tô màu lục giác"""
         gfxdraw.filled_polygon(screen, self.vertices, color)
         self.color = color
-    def filled(self):
+#    def getNextColor(self):
+#        """Trả về màu tếp theo"""
+#        if self.currentPlayer == 1:
+#            return RED
+#        elif self.currentPlayer == 2:
+#            return BLUE
+    def captured(self, player):
         """Đánh dấu đã được chọn"""
-        self.checkFilled = True
-
-    def getNextColor(self):
-        """Trả về màu tếp theo"""
-        if self.currentPlayer == 1:
-            return RED
-        elif self.currentPlayer == 2:
-            return BLUE
+        self.state = player
