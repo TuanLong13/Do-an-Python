@@ -34,7 +34,7 @@ for hexagon in queue:
 
 
 while True:
-
+    hexagon.clock.tick(FPS)
     for event in pg.event.get():
         if event.type == QUIT:
             pg.quit()
@@ -48,9 +48,11 @@ while True:
                 hexagon.render(screen)
     if event.type == pg.MOUSEBUTTONDOWN:
         for hexagon in board:
-            if hexagon.inHexagon(pg.mouse.get_pos()):
-                hexagon.fillHexagon(screen, RED)
+            if hexagon.inHexagon(pg.mouse.get_pos()) and not hexagon.checkFilled:
+                hexagon.fillHexagon(screen, hexagon.getNextColor())
                 hexagon.render(screen)
                 hexagon.filled()
+            hexagon.currentPlayer = 3 - hexagon.currentPlayer
+        hexagon.filled()
 
     pg.display.update()
