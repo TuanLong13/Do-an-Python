@@ -44,9 +44,10 @@ while True:
             hexagon.fillHexagon(screen, WHITE)
             hexagon.render(screen)
             if hexagon.inHexagon(pg.mouse.get_pos()):
-                hexagon.fillHexagon(screen, RED)
+                hexagon.fillHexagon(screen, hexagon.getNextColor())
                 hexagon.render(screen)
-    if event.type == pg.MOUSEBUTTONDOWN:
+                
+    if pg.mouse.get_pressed()[0]:
         for hexagon in board:
             if hexagon.inHexagon(pg.mouse.get_pos()) and not hexagon.checkFilled:
                 hexagon.fillHexagon(screen, hexagon.getNextColor())
