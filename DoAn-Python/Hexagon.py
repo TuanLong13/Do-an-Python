@@ -50,3 +50,17 @@ class Hexagon:
     def captured(self, player):
         """Đánh dấu đã được chọn"""
         self.state = player
+    def compareCentre(self, point):
+        """So sánh tâm lục giác"""
+        x, y = self.centre
+        a, b = point
+        return x == a and y == b
+    def findAllNeighbour(self, listHex):
+        """Tìm list các lục giác kế cạnh"""
+        neighbour = []
+        for hexagon in listHex:
+            distance = math.dist(self.centre, hexagon.centre)
+            if math.isclose(distance, 2*self.minimalRadius, rel_tol=0.05):
+                neighbour.append(hexagon)
+        return neighbour
+
