@@ -7,12 +7,15 @@ class TextButton:
         self.pos = pos
         self.size = size
         self.color = color
+        self.originalColor = color
         self.rect = pg.Rect(20, 40, 20, 20)
     
     def render(self):
         if self.rect.collidepoint(pg.mouse.get_pos()):
+            self.color = ORANGE
             self.printText(self.size-10)
         else:
+            self.color = self.originalColor
             self.printText(self.size)
     
     def click(self):

@@ -6,7 +6,6 @@ class Hexagon:
     def __init__(self, radius, position) -> None:
         """Khởi tạo lục giác"""
         self.radius = radius  #Bán kính từ tâm đường tròn ngoại tiếp đến các đỉnh
-        self.clock = pg.time.Clock() #dat gio cho game
         self.position = position    #Vị trí vẽ lục giác
         self.minimalRadius = math.cos(math.radians(30)) * radius #Bán kính đường tròng nội tiếp
         self.vertices = self.computeVertices() #Lấy về 1 list các tuple chứa toạ độ của các đỉnh
