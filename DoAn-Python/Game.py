@@ -1,4 +1,3 @@
-from collections import deque
 import sys
 import pygame as pg
 from os import path
