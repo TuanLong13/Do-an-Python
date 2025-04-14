@@ -1,5 +1,5 @@
 import pygame as pg
-from const import *
+from ui.const import *
 class TextButton:
     def __init__(self, surface, txt, pos, size, color):
         self.surface = surface

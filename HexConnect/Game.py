@@ -2,9 +2,9 @@ import sys
 import pygame as pg
 from os import path
 from pygame.locals import QUIT
-from const import *
-from Board import *
-from TextButton import *
+from ui.const import *
+from ui.Board import *
+from ui.TextButton import *
 
 class Game:
     board: Board

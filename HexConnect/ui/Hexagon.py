@@ -1,5 +1,5 @@
 import math
-from const import *
+from ui.const import *
 import pygame as pg
 from pygame import gfxdraw
 class Hexagon:
@@ -7,7 +7,7 @@ class Hexagon:
         """Khởi tạo lục giác"""
         self.radius = radius  #Bán kính từ tâm đường tròn ngoại tiếp đến các đỉnh
         self.position = position    #Vị trí vẽ lục giác
-        self.minimalRadius = math.cos(math.radians(30)) * radius #Bán kính đường tròng nội tiếp
+        self.minimalRadius = math.cos(math.radians(30)) * radius #Bán kính đường tròn nội tiếp
         self.vertices = self.computeVertices() #Lấy về 1 list các tuple chứa toạ độ của các đỉnh
         self.centre = self.findCentre()
         self.state = 0 #Biến lưu trạng thái của lục giác(0: WHITE, 1: RED, 2: BLUE)

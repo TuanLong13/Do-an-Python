@@ -1,7 +1,7 @@
 from collections import deque
 import pygame as pg
-from const import *
-from Hexagon import *   
+from ui.const import *
+from ui.Hexagon import *   
 class Board():
     def __init__(self, surface, size):
         self.surface = surface
